@@ -23,7 +23,7 @@ def setup():
     print("\nThis is the numeration of the board:")
     print("| 1 | 2 | 3 |")
     print("| 4 | 5 | 6 |")
-    print("| 7 | 8 | 9 |")
+    print("| 7 | 8 | 9 |\n")
 
 
 def play(current, board):
@@ -55,6 +55,7 @@ def draw_board(board):
         print("| ", end="")
         print(" | ".join([x for x in row]), end="")
         print(" |")
+    print()
 
 
 def winner(current_player, board):
