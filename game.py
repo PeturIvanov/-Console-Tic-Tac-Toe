@@ -51,6 +51,7 @@ def play(current, board):
 
 
 def draw_board(board):
+    print()
     for row in board:
         print("| ", end="")
         print(" | ".join([x for x in row]), end="")
