@@ -56,7 +56,6 @@ def draw_board(board):
         print("| ", end="")
         print(" | ".join([x for x in row]), end="")
         print(" |")
-    print()
 
 
 def winner(current_player, board):
