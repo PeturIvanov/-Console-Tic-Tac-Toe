@@ -8,11 +8,11 @@ def setup():
     player_one_name = input("Enter first player name: ").title()
     player_two_name = input("Enter second player name: ").title()
 
-    player_one_sign = input(f"\n{player_one_name} choose symbol 'X' or 'O': ").upper()
+    player_one_sign = input(f"\n{player_one_name} choose symbol '{SYMBOLS[0]}' or '{SYMBOLS[1]}': ").upper()
 
     while player_one_sign not in "XO":
-        print("The sign have to be 'X' or 'O'!")
-        player_one_sign = input("Enter valid symbol 'X' or 'O': ").upper()
+        print(Fore.RED + "The sign have to be 'X' or 'O'!" + Fore.RESET)
+        player_one_sign = input(f"Enter valid symbol '{SYMBOLS[0]}' or '{SYMBOLS[1]}': ").upper()
 
     player_two_sign = Fore.RED + "X" + Fore.RESET if player_one_sign == "O" else Fore.RED + "O" + Fore.RESET
 
@@ -23,7 +23,7 @@ def setup():
 
     print(f"\n{player_one_name} is with '{player_one_sign}'")
     print(f"{player_two_name} is with '{player_two_sign}'")
-    print("\nThis is the numeration of the board:")
+    print(Fore.YELLOW + "\nThis is the numeration of the board:" + Fore.RESET)
     print("| 1 | 2 | 3 |")
     print("| 4 | 5 | 6 |")
     print("| 7 | 8 | 9 |\n")
@@ -41,7 +41,7 @@ def play(current, board):
     while True:
         if not 0 < choice < 10:
             print(Fore.RED + "Invalid field!" + Fore.RESET)
-            
+
             choice = int(input(Fore.GREEN + "Select again: " + Fore.RESET))
 
             continue
@@ -88,6 +88,7 @@ def winner(current_player, board):
 
 board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
+SYMBOLS = [Fore.RED + "X" + Fore.RESET, Fore.BLUE + "O" + Fore.RESET]
 player_one_data = None
 player_two_data = None
 setup()
