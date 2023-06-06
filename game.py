@@ -14,9 +14,9 @@ def setup():
         print(Fore.RED + "The sign have to be 'X' or 'O'!" + Fore.RESET)
         player_one_sign = input(f"Enter valid symbol '{SYMBOLS[0]}' or '{SYMBOLS[1]}': ").upper()
 
-    player_two_sign = Fore.RED + "X" + Fore.RESET if player_one_sign == "O" else Fore.RED + "O" + Fore.RESET
+    player_one_sign = SYMBOLS[0] if player_one_sign == "X" else SYMBOLS[1]
 
-    player_one_sign = Fore.BLUE + player_one_sign + Fore.RESET
+    player_two_sign = SYMBOLS[0] if player_one_sign == SYMBOLS[1] else SYMBOLS[1]
 
     player_one_data = [player_one_name, player_one_sign]
     player_two_data = [player_two_name, player_two_sign]
