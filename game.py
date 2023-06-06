@@ -82,21 +82,34 @@ def winner(current_player, board):
     second_diagonal = all(x == current_player[1] for x in [board[0][2], board[1][1], board[2][0]])
 
     if any([first_row, second_row, third_row, first_col, second_col, third_col, first_diagonal, second_diagonal]):
-        print(f"{current_player[0]} win!")
+        print()
+        print(Fore.CYAN + f"{current_player[0]} win!" + Fore.RESET)
         game_on = False
+
+    elif turns_counter == 9:
+        print(Fore.CYAN + "Draw!" + Fore.RESET)
 
 
 board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
 SYMBOLS = [Fore.RED + "X" + Fore.RESET, Fore.BLUE + "O" + Fore.RESET]
+
 player_one_data = None
 player_two_data = None
+
 setup()
+
 current_player = player_one_data
 next_player = player_two_data
+
+turns_counter = 0
+
 game_on = True
 
 while game_on:
+
+    turns_counter += 1
+
     play(current_player, board)
 
     current_player, next_player = next_player, current_player
