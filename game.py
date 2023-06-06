@@ -1,4 +1,5 @@
 from math import ceil
+from colorama import Fore
 
 
 def setup():
@@ -13,7 +14,9 @@ def setup():
         print("The sign have to be 'X' or 'O'!")
         player_one_sign = input("Enter valid symbol 'X' or 'O': ").upper()
 
-    player_two_sign = "X" if player_one_sign == "O" else "O"
+    player_two_sign = Fore.RED + "X" + Fore.RESET if player_one_sign == "O" else Fore.RED + "O" + Fore.RESET
+
+    player_one_sign = Fore.BLUE + player_one_sign + Fore.RESET
 
     player_one_data = [player_one_name, player_one_sign]
     player_two_data = [player_two_name, player_two_sign]
