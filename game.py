@@ -32,11 +32,18 @@ def setup():
 def play(current, board):
     print(f"{current[0]} is your turn.")
 
-    choice = int(input("Select a empty field [1-9]: "))
+    try:
+        choice = int(input(Fore.GREEN + "Select a empty field [1-9]: " + Fore.RESET))
+    except ValueError:
+        print(Fore.RED + "Field must be integer between [1-9]!" + Fore.RESET)
+        choice = int(input("Select a empty field [1-9]: "))
 
     while True:
         if not 0 < choice < 10:
-            choice = int(input("Invalid field!\nSelect again: "))
+            print(Fore.RED + "Invalid field!" + Fore.RESET)
+            
+            choice = int(input(Fore.GREEN + "Select again: " + Fore.RESET))
+
             continue
 
         r = ceil(choice / 3) - 1
@@ -47,7 +54,8 @@ def play(current, board):
             break
 
         else:
-            choice = int(input("You have to select empty field!\nSelect again: "))
+            print(Fore.RED + "You have to select empty field!" + Fore.RESET)
+            choice = int(input("Select again: "))
 
     draw_board(board)
     winner(current_player, board)
